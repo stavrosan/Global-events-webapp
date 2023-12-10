@@ -23,7 +23,7 @@
     <div class='col md-4 p-2'>
         <div class='card1 h-100'>
              <img src={{ event.picture }} class='card-img-top object-fit-cover' style='height:15rem;' alt={{ event.name }}>
-            <div class='card-body'>
+            <div class='card-body mt-2'>
               <h5 class='card-title fw-bold'>{{ event.name }}</h5>
               <p class='card-text'>{{ event.date ? event.date|date('Y-m-d H:i') : '' }}</p>
               <p class='card-text'>{{ event.address }}</p>
