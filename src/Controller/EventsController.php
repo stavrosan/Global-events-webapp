@@ -25,6 +25,19 @@ class EventsController extends AbstractController
         ]);
     }
 
+    //Route and method for filtering the event types
+    #[Route('/type', name: 'app_type', methods: ['GET'])]
+    public function type(Request $request, EventsRepository $eventsRepository): Response
+    {   
+       $eventType = $request->query->get('type');
+       $filteredEvents = $eventsRepository->findBy(['type'=>$eventType]);
+   
+        return $this->render('events/index.html.twig', [
+            'events' => $filteredEvents,
+            
+        ]);
+    }
+
     #[Route('/new', name: 'app_events_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -54,17 +67,6 @@ class EventsController extends AbstractController
     }
 
 
-     //I tried Route and method for filtering the event types and display them in type.html.twig
-     #[Route('/{type}', name: 'app_events_type', methods: ['GET'])]
-     public function type(Request $request, Events $events): Response
-     {   
-        $type = $request->get('type');
-    
-         return $this->render('events/type.html.twig', [
-             'events' => $events,
-             'type' => $type,
-         ]);
-     }
 
     #[Route('/{id}/edit', name: 'app_events_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Events $event, EntityManagerInterface $entityManager): Response

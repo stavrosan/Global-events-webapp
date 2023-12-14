@@ -18,12 +18,9 @@
 }
 
 .hero{
-    background-image:url('https://cdn.pixabay.com/photo/2018/03/17/19/23/world-map-3234901_640.jpg');
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url('https://cdn.pixabay.com/photo/2018/03/17/19/23/world-map-3234901_640.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
-    max-width: 100%;
-    width: 100%;
-    max-height:100%; 
+    background-size: cover; 
     height: 40vh;
 }
 
@@ -96,5 +93,13 @@ footer{
   
   #links{
    text-align: center;
+  }
+
+
+  @media screen and (max-width: 425px){
+    .hero{
+        height:10vh;
+    }
+
   }
   

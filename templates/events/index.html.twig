@@ -16,7 +16,15 @@
    <div class="container">
      <h1 class="text-center m-4">Events</h1>
      <a class="btn btn-success my-2" href="{{ path('app_events_new') }}">Create new event</a>
-      <div class="row row-cols-xl-3 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1">
+     <div class="d-flex justify-content-center">
+     {# filtering events #}
+     <a class="btn btn-dark m-1" href="{{ path('app_events_index') }}">All events</a>{# When you press the button it shows all the events #}
+     <a class="btn btn-dark m-1" href="{{ path('app_type', {'type': 'Movies' }) }}">Movies only</a>{# When you press the button it shows event type movies #}
+     <a class="btn btn-dark m-1" href="{{ path('app_type', {'type': 'Music' }) }}">Music only</a>
+     <a class="btn btn-dark m-1" href="{{ path('app_type', {'type': 'Theater' }) }}">Theater only</a>
+     <a class="btn btn-dark m-1" href="{{ path('app_type', {'type': 'Other' }) }}">Other</a>
+     </div>
+      <div class="row row-cols-1 row-cols-xl-3 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1">
      
         {% for event in events %}
            
@@ -29,7 +37,6 @@
               <p class='card-text'>{{ event.address }}</p>
               <a class="btn btn-info" href="{{ path('app_events_show', {'id': event.id}) }}">Show details</a>
               <a class="btn btn-warning" href="{{ path('app_events_edit', {'id': event.id}) }}">Edit</a>
-              <a class="btn btn-dark m-1" href="{{ path('app_events_index', {'type': event.type }) }}">Event Type</a>{# When you press the button it shows event type in the url #}
             </div>
         </div>
     </div>
