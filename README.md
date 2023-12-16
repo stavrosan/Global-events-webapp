@@ -5,3 +5,4 @@
 * Delete event
 * Display all the events in the main page
 * Filter events according to type
+* Responsive layout
