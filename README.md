@@ -7,4 +7,5 @@
 * Filter events according to type
 * Responsive design
 
+
 <img src="/imgs/globalEvents.gif">
